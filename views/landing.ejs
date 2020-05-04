@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Blog App</title>
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/landing.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+    <style	type="text/css">
+		body{
+			background-color: #000;
+		}
+#landing-header {
+z-index: 1;
+position: relative;
+text-align: center;
+padding-top: 40vh;
+}
+#landing-header h1 {
+  color: #fff;
+}
+.slideshow { 
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+h1{
+color:white;
+	font-weight: 700;
+	text-shadow: 0 0 3px #F00000, 0 0 5px #00000F;
+}
+.slideshow li { 
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: 0;
+  animation: imageAnimation 50s linear infinite; 
+}
+.slideshow li:nth-child(1) { 
+  background-image: url(https://proxy-ap-south1.goorm.io//service/5e8cc19bfd20bf3d51258b58_d2a0xk0BeHgyGAC3SI3.run-ap-south1.goorm.io/9080//file/load/nick-morrison-FHnnjk1Yj7Y-unsplash.jpg?path=d29ya3NwYWNlJTJGTXlwcm9qZWN0JTJGcmVzdEFwcCUyRnZpZXdzJTJGbmljay1tb3JyaXNvbi1GSG5uamsxWWo3WS11bnNwbGFzaC5qcGc=&docker_id=d2a0xk0BeHgyGAC3SI3&secure_session_id=2NSel-e21ZuzxrutLeivmhLVmdfFSF9Q) 
+}
+.slideshow li:nth-child(2) { 
+  background-image: url(https://proxy-ap-south1.goorm.io//service/5e8cc19bfd20bf3d51258b58_d2a0xk0BeHgyGAC3SI3.run-ap-south1.goorm.io/9080//file/load/thought-catalog-505eectW54k-unsplash.jpg?path=d29ya3NwYWNlJTJGTXlwcm9qZWN0JTJGcmVzdEFwcCUyRnZpZXdzJTJGdGhvdWdodC1jYXRhbG9nLTUwNWVlY3RXNTRrLXVuc3BsYXNoLmpwZw==&docker_id=d2a0xk0BeHgyGAC3SI3&secure_session_id=LONSFCxCOa6-aImmbTMGQ9_NS-trktOf);
+  animation-delay: 5s; 
+}
+.slideshow li:nth-child(3) { 
+  background-image: url(https://proxy-ap-south1.goorm.io//service/5e8cc19bfd20bf3d51258b58_d2a0xk0BeHgyGAC3SI3.run-ap-south1.goorm.io/9080//file/load/freddy-castro-u3ajSXhZM_U-unsplash.jpg?path=d29ya3NwYWNlJTJGTXlwcm9qZWN0JTJGcmVzdEFwcCUyRnZpZXdzJTJGZnJlZGR5LWNhc3Ryby11M2FqU1hoWk1fVS11bnNwbGFzaC5qcGc=&docker_id=d2a0xk0BeHgyGAC3SI3&secure_session_id=LONSFCxCOa6-aImmbTMGQ9_NS-trktOf);
+  animation-delay: 10s; 
+}
+.slideshow li:nth-child(4) { 
+  background-image: url(https://proxy-ap-south1.goorm.io//service/5e8cc19bfd20bf3d51258b58_d2a0xk0BeHgyGAC3SI3.run-ap-south1.goorm.io/9080//file/load/ian-schneider-TamMbr4okv4-unsplash.jpg?path=d29ya3NwYWNlJTJGTXlwcm9qZWN0JTJGcmVzdEFwcCUyRnZpZXdzJTJGaWFuLXNjaG5laWRlci1UYW1NYnI0b2t2NC11bnNwbGFzaC5qcGc=&docker_id=d2a0xk0BeHgyGAC3SI3&secure_session_id=LONSFCxCOa6-aImmbTMGQ9_NS-trktOfs);
+  animation-delay: 15s; 
+}
+.slideshow li:nth-child(5) { 
+  background-image: url(https://images.unsplash.com/photo-1530789253388-582c481c54b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);
+  animation-delay: 20s; 
+}
+@keyframes imageAnimation { 
+  0% { 
+    opacity: 0; 
+    animation-timing-function: ease-in;
+  }
+  10% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  20% {
+    opacity: 1
+  }
+  30% {
+    opacity: 0
+  }
+}
+
+</style>	
+	</head>
+    <body>
+    
+    <div class="container">
+        <% if(error && error.length > 0){ %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+        <% } %>
+        <% if(success && success.length > 0){ %>
+            <div class="alert alert-success" role="alert">
+                <%= success %>
+            </div>
+        <% } %>
+    </div>
+    
+    <div id="landing-header">
+ 		<h1>Welcome to the Blog App!</h1>
+		<a href="/signup" class="btn btn-lg btn-success">Get Statrted</a>
+    </div>
+    
+    <ul class="slideshow">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
+<%- include("partials/footer") %>

@@ -1,0 +1,26 @@
+<%- include("partials/header") %>
+
+<div class="ui main text container segment">		
+<form action="/login" method="POST">
+
+<div class="ui inverted segment">
+  <div class="ui inverted form">
+    <div class="two fields">
+      <div class="field">
+        <label>Username</label>
+        <input placeholder="username" type="text" name="username">
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input placeholder="password" type="password" name="password">
+      </div>
+    </div>
+    <div class="inline field">
+    </div>
+    <button class="ui grey button">Login</button>
+  </div>
+</div>
+	
+</form>
+</div>
+<%- include("partials/footer") %>

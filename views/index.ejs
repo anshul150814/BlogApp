@@ -1,0 +1,49 @@
+<%- include("partials/header") %>
+
+
+ <div class="row">
+            <div class="column padding-reset">
+                <div class="ui huge message page grid">
+                    <h1 class="ui huge header">Welcome to the Blog App, <%= currentUser.username.toUpperCase() %></h1>
+                    <p>This is a Blogging website. "Blog" is an abbreviated version of “weblog”, which is a term used to describe websites.
+					Bored?? click her to find something interesting.</p>
+                    <a class="ui blue button" href="/blogs/patatap">Learn more »</a>
+                </div>
+            </div>
+        </div>
+
+<% blogs.forEach(function(blog){ 	%>
+
+<div class="container" id="container">
+<div class="col-md-3 col-sm-6">	
+<div class="ui card">
+  <div class="image">
+    <img src="<%=blog.image	%>">
+  </div>
+  <div class="content">
+    <a class="header" ><%=	blog.title	%></a>
+    <div class="meta">
+      <span class="date"><%=	blog.created.toDateString()	%> </span>
+    </div>
+	  <div class="meta">
+      <span><em>Created by <%= blog.author.username	%> </em> </span>
+    </div>
+    <div class="description">
+      <%=	blog.body.substring(0, 100) %>....
+    </div>
+  </div>
+  <div class="extra content">
+    <a href="/blogs/<%= blog._id %>" id="extracontent">
+     Read more>>
+    </a>
+  </div>
+</div>
+</div>
+</div>	
+<p>
+	
+</p>
+
+<%	}) %>
+
+<%- include("partials/footer") %>

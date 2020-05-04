@@ -1,0 +1,102 @@
+	
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BLOG APP</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+	<style	type="text/css">
+		.ui.text.container{
+	margin-top: 10.0em;
+	}
+body{
+background: #BE93C5;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #7BC6CC, #BE93C5);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #7BC6CC, #BE93C5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+;
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+	}
+#delete{
+	display: inline;
+}
+
+#box{
+margin:45px;
+}
+#show{
+margin:45px;
+}	
+	
+#container{
+padding-left: 150px;
+padding-top: 40px;
+margin-bottom: 20px;	
+}
+#anotherContainer{
+margin-top: 1px;	
+}
+		
+#message{
+margin: 20px 200px;	
+}
+
+#edit_delete{
+display:inline;
+}
+	
+#username{
+color: blue;
+font-weight: bold;
+}
+#comments{
+background: #E0EAFC;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#text{
+margin-left:45px;
+}	
+		
+#showcontainer{
+margin: 200px;
+margin-top: 40px;
+}
+#button{
+margin-top: 5px;	
+}
+		#extracontent{
+			color:blue;
+		}
+
+	</style>
+	</head>
+<body>
+	<div class="ui pointing menu">
+  <a class="active item" href="/blogs">Blog App</a>
+  <a class="item" href="/blogs/about">About</a>
+  <a class="item" href="/blogs/new">New post</a>
+  <div class="right menu">
+    <div class="item">
+      <div class="ui transparent icon input">
+		 <% if(!currentUser) { %>
+           <a class="item" href="/signup">SignUp</a>
+		   <a class="item" href="/login">Login</a>
+		  <%	} else	{  %>
+		  <a class="item" href="/logout">Logout</a>
+		  <%	}  %>
+		</div>
+    </div>
+  </div>
+</div>
+	
+<div class="container" id="message">
+<% if (error && error.length > 0 ){ %>
+	<div class="ui red message"><%= error %></div>
+<%	 }  %>
+<%	if (success && success.length > 0){  %>
+	<div class="ui green message"><%= success %> </div>
+<%	}  %>
+</div>	
+	

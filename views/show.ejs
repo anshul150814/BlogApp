@@ -1,0 +1,76 @@
+<%- include("partials/header") %>
+<div class="container" id="showcontainer">
+<div class="ui segment">
+  <div class="ui two column very relaxed grid">
+    <div class="column" >
+      <div class="ui top attached segment">
+		<div class="item">
+			<h1 class="header"><%=	blog.title	%></h1>
+			<img class="ui centered rounded image" src="<%= blog.image %>">
+			
+				<p>
+					
+				</p>
+				<span><%=	blog.created.toDateString() %></span>
+				<p>
+					
+				</p>
+				<div class="description">
+					<p>
+						<%-	blog.body	%>
+					</p>
+				</div>
+				<p>
+				</p>
+		  <% if (currentUser && blog.author.id.equals(currentUser._id)){ 	%> 
+				<a  class="ui inverted orange button" href="/blogs/<%= blog._id %>/edit">Edit</a>
+				<form id="delete" action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
+				<button class="ui inverted red button">Delete</button>
+				</form>
+				  <%	}  %>
+			</div>	
+		</div>
+	</div>
+    </div>
+    <div class="column" id="comments">
+
+			<p>
+				<a href="/blogs/<%=blog._id%>/comments/comment"><button class="ui right floated green button">Comment</button></a>
+			</p>
+		
+		
+		<h3> Comments </h3>
+	<%	blog.comments.forEach(function(comment){ %>		
+		<div class="ui comments">
+	
+		  <div class="comment">
+			  <h3 class="ui dividing header"></h3>
+    <a class="avatar">
+      <i class="user icon"></i>
+    </a>
+    <div class="content">
+      <a class="author"><%= comment.author.username %></a>
+      </div>
+      <div class="text" id="text">
+        <%= comment.text %>
+     </div>
+  </div>		
+			     <% if (currentUser && comment.author.id.equals(currentUser._id)){ 	%> 
+				 <a class="mini ui orange button" href="/blogs/<%=blog._id%>/comments/<%=comment._id%>/edit"> Edit </a>
+					<form id="edit_delete" action="/blogs/<%=blog._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST" >
+					<input type="submit" class="mini ui red button" value="Delete">
+					</form>
+				<p></p>
+				<p></p>
+					<%	}  %> 
+					<%	}) %>
+				</div>
+		</div>
+    </div>
+  </div>
+  
+</div>
+
+				
+
+<%- include("partials/footer") %>

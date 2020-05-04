@@ -1,0 +1,51 @@
+<!Doctype html>
+<html>
+	
+<head>
+<title></title>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+<style	type="text/css">
+	#container{
+		margin: 13%;
+	}
+	body{
+		background: #E0EAFC;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+	}
+	#button{
+	margin-top: 5px;	
+	}
+	</style>
+	</head>
+	<body>
+
+<div class=" ui main text container segment" id="container">		
+<form action="/blogs/<%= blog %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+<h1>
+	Edit your comment 
+	</h1>
+	<p>
+	</p>
+	<div class="form-group">
+		<textarea class="form-control" type="text" name="comment[text]" value="<%= comment.text %>" required rows="10" cols="50" ></textarea>
+  </div>
+<p> </p>
+		
+  <button class="ui primary submit labeled icon button" type="submit">
+ <i class="icon edit"></i> Update Comment
+	</button>
+<div id="button">	
+  <a class="ui labeled icon button" href="/blogs/<%= blog %>">
+    <i class="left chevron icon"></i>
+    Back
+  </a>
+	</div>	
+	
+	
+	
+</form>
+</div>
+</body>
+</html>
